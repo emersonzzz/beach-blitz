@@ -129,8 +129,11 @@ class uiHandler():
                     if eve.key == pygame.K_BACKSPACE:
                         rawmessage = rawmessage[:-1]
                     elif eve.key == pygame.K_RETURN:
-                        serverSide.send(rawmessage)
-                        rawmessage = ''
+                        if rawmessage == '':
+                            pass
+                        else:
+                            serverSide.send(rawmessage)
+                            rawmessage = ''
                     else:
                         rawmessage += eve.unicode
 
